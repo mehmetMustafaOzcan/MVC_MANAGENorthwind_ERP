@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1y+F5+cGGCMYMn60enn8TMo1MMWRoMAqXSQsQ9sBaifJZ7RYo16lyF242IJnyb/eVGaTZ/bDFET7mskItBDR3A==",
+  "dgSpecHash": "BG+WNO0KKM3ALZ3ksLdv9ADy7l7mO81EPFILPW8001ug21koydHDWLp6fUWPKbxtsXjb7y5ee7fcGKSq7eZm/Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ÖZCAN\\Desktop\\Mustafanın kodları\\ManageTheNorthwind\\ManageTheNorthwind\\ManageTheNorthwind.csproj",
+  "projectFilePath": "C:\\Users\\ÖZCAN\\Documents\\GitHub\\MVC_MANAGENorthwind_ERP\\ManageTheNorthwind\\ManageTheNorthwind.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ÖZCAN\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ÖZCAN\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

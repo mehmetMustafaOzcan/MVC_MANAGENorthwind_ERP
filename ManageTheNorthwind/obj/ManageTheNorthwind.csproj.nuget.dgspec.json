@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ÖZCAN\\Desktop\\Mustafanın kodları\\ManageTheNorthwind\\ManageTheNorthwind\\ManageTheNorthwind.csproj": {}
+    "C:\\Users\\ÖZCAN\\Documents\\GitHub\\MVC_MANAGENorthwind_ERP\\ManageTheNorthwind\\ManageTheNorthwind.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ÖZCAN\\Desktop\\Mustafanın kodları\\ManageTheNorthwind\\ManageTheNorthwind\\ManageTheNorthwind.csproj": {
+    "C:\\Users\\ÖZCAN\\Documents\\GitHub\\MVC_MANAGENorthwind_ERP\\ManageTheNorthwind\\ManageTheNorthwind.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ÖZCAN\\Desktop\\Mustafanın kodları\\ManageTheNorthwind\\ManageTheNorthwind\\ManageTheNorthwind.csproj",
+        "projectUniqueName": "C:\\Users\\ÖZCAN\\Documents\\GitHub\\MVC_MANAGENorthwind_ERP\\ManageTheNorthwind\\ManageTheNorthwind.csproj",
         "projectName": "ManageTheNorthwind",
-        "projectPath": "C:\\Users\\ÖZCAN\\Desktop\\Mustafanın kodları\\ManageTheNorthwind\\ManageTheNorthwind\\ManageTheNorthwind.csproj",
+        "projectPath": "C:\\Users\\ÖZCAN\\Documents\\GitHub\\MVC_MANAGENorthwind_ERP\\ManageTheNorthwind\\ManageTheNorthwind.csproj",
         "packagesPath": "C:\\Users\\ÖZCAN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ÖZCAN\\Desktop\\Mustafanın kodları\\ManageTheNorthwind\\ManageTheNorthwind\\obj\\",
+        "outputPath": "C:\\Users\\ÖZCAN\\Documents\\GitHub\\MVC_MANAGENorthwind_ERP\\ManageTheNorthwind\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ÖZCAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
