@@ -1,0 +1,214 @@
+﻿@using Newtonsoft.Json.Linq;
+
+@using System.Text.Json;
+@model dynamic;
+
+
+
+<select class="form-select" aria-label="Default select example">
+    <option selected>Filter</option>
+    <option value="Month">Aylara Göre Satışlar</option>
+    <option value="Year">Yıllara Göre Satışlar</option>
+</select>
+
+<div class="text-center d-flex justify-content-center">
+    <table class="table table bg-gradient w-50 m-3 ">
+        <thead>
+
+            @{
+                if (Model is JsonResult jsonResult)
+                {
+                    string jsonString = JsonSerializer.Serialize(((JsonResult)Model).Value);
+
+                    JArray array = JArray.Parse(jsonString);
+                    <tr>
+                        @foreach (JObject obj in array)
+                        {
+                            @foreach (KeyValuePair<string, JToken> prop in obj)
+                            {
+                                <th>@prop.Key</th>
+                             
+                                @*<p>@(prop.Key + ": " + prop.Value.ToString());</p>*@
+                            }
+                            break;
+                        }
+                    </tr>
+                        @foreach (JObject obj in array)
+                        {
+                    <tr>
+                            @foreach (KeyValuePair<string, JToken> prop in obj)
+                            {
+                                <td>@prop.Value</td>
+
+                            }
+                            @{
+                                if (obj.ContainsKey("EmployeeId"))
+                                {
+                                    <td class="bg-transparent text-success border-0 ">
+                                        <a class=" btn border rounded-pill" asp-action="ListSales" asp-controller="Employee" asp-route-id="@obj.GetValue("EmployeeId")">
+                                           
+                                            <svg class="nav-icon " width=20px height="20px">
+                                                <use xlink:href="/vendors/coreui/icons/svg/free.svg#cil-layers"></use>
+                                            </svg> Details
+                                        </a>
+                                    </td>
+                                }
+                            }
+                            
+                    </tr>
+                        }
+                        
+             
+                }
+            }
+
+        </thead>
+        <tbody class="veriler">
+    </table>
+</div>
+
+
+
+@{
+    //if (Model!=null)
+    {
+        <div class="text-center d-flex justify-content-center">
+            <table class="table table-dark w-50 m-3 ">
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Month</th>
+                        <th>TotalSales</th>
+
+                    </tr>
+                </thead>
+                <tbody class="veriler">
+                    @* @{
+            foreach (var order in Model)
+            {
+            <tr class="text-center ">
+            <td>@order.Year</td>
+            <td>@(order.Month??"---")</td>
+
+            <td class="text-end">@(order.TotalSales.ToString("N2")) $</td>
+
+            </tr>
+            }
+
+            }*@
+                </tbody>
+            </table>
+        </div>
+    }
+}
+
+@section Scripts{
+    <script>
+    //    $(".form-select").change(filtrele);
+    //    function filtrele() {
+    //        //alert($(this).val());
+    //        let filtre = $(this).val();
+    //        let url1 = "@Url.Action("SalesBy","Reports")";
+
+    //    //    if (filtre) {
+
+    //    //        $.get(url1, { filter: filtre }, function (data) {
+    //    //            var grafik = []
+    //    //            // grafik=[500,600,700]
+    //    //            $(".veriler").html("");
+    //    //            for (const veri of data) {
+    //    //                grafik.push(veri.totalSales)
+
+    //    //                $(".veriler").append(`
+    //    //                                                                        <tr>
+    //    //                                                                        <td>${veri.year}</td>
+    //    //                                                                       <td>${veri.month ? `${veri.month}` : `${`---`}`} </td>
+    //    //                                                                      <td>${veri.totalSales}</td>
+    //    //                                                                        </tr>
+    //    //                                                                        `);
+    //    //            }
+    //    //            console.log(grafik)
+    //    //            const cardChart1 = new Chart(document.getElementById('card-chart1'), {
+    //    //                type: 'line',
+    //    //                data: {
+    //    //                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    //    //                    datasets: [{
+    //    //                        label: 'My First dataset',
+    //    //                        backgroundColor: 'transparent',
+    //    //                        borderColor: 'rgba(255,255,255,.55)',
+    //    //                        pointBackgroundColor: coreui.Utils.getStyle('--cui-primary'),
+    //    //                        data: grafik
+    //    //                    }]
+    //    //                },
+    //    //                options: {
+    //    //                    plugins: {
+    //    //                        legend: {
+    //    //                            display: false
+    //    //                        }
+    //    //                    },
+    //    //                    maintainAspectRatio: false,
+    //    //                    scales: {
+    //    //                        x: {
+    //    //                            grid: {
+    //    //                                display: false,
+    //    //                                drawBorder: false
+    //    //                            },
+    //    //                            ticks: {
+    //    //                                display: false
+    //    //                            }
+    //    //                        },
+    //    //                        y: {
+    //    //                            min: 10000,
+    //    //                            max: 90000,
+    //    //                            display: false,
+    //    //                            grid: {
+    //    //                                display: false
+    //    //                            },
+    //    //                            ticks: {
+    //    //                                display: false
+    //    //                            }
+    //    //                        }
+    //    //                    },
+    //    //                    elements: {
+    //    //                        line: {
+    //    //                            borderWidth: 1,
+    //    //                            tension: 0.4
+    //    //                        },
+    //    //                        point: {
+    //    //                            radius: 4,
+    //    //                            hitRadius: 10,
+    //    //                            hoverRadius: 4
+    //    //                        }
+    //    //                    }
+    //    //                }
+    //    //            });
+
+
+
+
+    //    //            $("#errorMessage").addClass("d-none");
+    //    //        }).fail(function (data) {
+    //    //            //console.log(data.status);
+    //    //            //console.log(data.responseText);
+    //    //            $("#sehirler").addClass("d-none");
+    //    //            $("#errorMessage").text(data.responseText);
+    //    //            $("#errorMessage").removeClass("d-none");
+    //    //        })
+    //    //        //alert("Seçilen bölgenin ID:" + bolgeId);
+    //    //        $("#sehirler").removeClass("d-none");
+
+    //    //    }
+    //    //    else {
+    //    //        //alert("Lütfen bir bölge seçiniz!");
+    //    //        $("#sehirler").addClass("d-none");
+    //    //    }
+    //    //}
+
+    </script>
+    <script>
+
+    </script>
+
+    }
+
+

@@ -1,0 +1,161 @@
+﻿@model ManageTheNorthwind.Models.Order
+
+@{
+    ViewData["Title"] = "Detail";
+}
+<h5 class="m-0 text-muted">
+    #@Html.DisplayNameFor(model => model.OrderId) @Html.DisplayFor(model => model.OrderId)
+</h5>
+<a class=" btn btn-close btn-ghost-danger float-end " asp-action="Index"></a>
+
+
+<h1>Detail</h1>
+
+<div>
+   
+    <hr />
+    <div class="container">
+        <div class="=row d-inline-flex">
+            <div class="col-6  ">
+                <dl class="row">
+                  
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.CustomerId)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.CustomerId)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.EmployeeId)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.EmployeeId)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.OrderDate)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => (model.OrderDate))
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.RequiredDate)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.RequiredDate)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.ShippedDate)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.ShippedDate)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.ShipVia)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.ShipVia)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Freight)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Freight)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.ShipName)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.ShipName)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.ShipAddress)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.ShipAddress)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.ShipCity)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.ShipCity)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.ShipRegion)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.ShipRegion)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.ShipPostalCode)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.ShipPostalCode)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.ShipCountry)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.ShipCountry)
+                    </dd>
+
+                </dl>
+            </div>
+            <div class="col-6  ">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">ProductName</th>
+                            <th scope="col">UnitPrice</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Discount</th>
+                            <th scope="col">Total Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            decimal totalprice = 0;
+                            foreach (var item in Model.OrderDetails)
+                            {
+                                decimal price = item.UnitPrice * item.Quantity * (decimal)(1 - item.Discount);
+                                <tr>
+
+                                    <th scope="row">*</th>
+                                    <td>@item.Product.ProductName</td>
+                                    <td>@item.UnitPrice.ToString("F3")</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@item.Discount</td>
+                                    <td>
+                                        @price.ToString("F3") $
+                                    </td>
+
+                                </tr>
+
+                                totalprice += price;
+                            }
+                            <tr class="text-muted fst-italic fw-bold">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                                <td >Total Price</td>
+                                <td>
+                                    @totalprice.ToString("F3") $
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div>
+    <div>
+        <a class="btn btn-ghost-warning border mb-2" asp-action="Edit" asp-route-id="@Model?.OrderId">Edit</a>
+       
+    </div>
+</div>

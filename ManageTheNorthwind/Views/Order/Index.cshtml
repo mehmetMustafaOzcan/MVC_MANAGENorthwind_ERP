@@ -1,0 +1,114 @@
+﻿@model IEnumerable<ManageTheNorthwind.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">ORDERS</h1>
+
+<p>
+    <a type="button" class="btn btn-primary" asp-action="Create" asp-controller="Order">Create New</a>
+</p>
+<div class="text-end">
+    <p class=" d-inline">
+        <div class="bg-warning d-inline w-25 text-warning rounded-pill">----</div>
+        Not Shipped
+    </p>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer.CompanyName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ShippedDate)
+            </th>
+
+
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.ShipCity)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.ShipCountry)
+            </th>
+            <th>Total Price </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 0;
+            foreach (var item in Model)
+            {
+                <tr class=" details @(Convert.ToDateTime(item.ShippedDate)<(new DateTime(0002, 02,2))?" alert alert-warning border-warning fw-bold border-1 " :"")">
+
+                    <td>
+                        <a asp-action ="Details" asp-route-id="@item.OrderId"> @Html.DisplayFor(modelItem => item.OrderId)</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer.CompanyName)
+                    </td>
+
+                    <td >
+                        @((Convert.ToDateTime(item.OrderDate)).ToShortDateString())
+                    </td>
+
+                    <td >
+                        <div class=" details @(Convert.ToDateTime(item.ShippedDate)<(new DateTime(0002, 02,2))?" invisible  ":"")">
+                        @((Convert.ToDateTime(item.ShippedDate)).ToShortDateString())
+                        </div>
+                    </td>
+
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShipCity)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShipCountry)
+                    </td>
+                    <td class="text-end">
+                        @item.OrderDetails.GroupBy(x => x.OrderId).Select(x => x.Sum(x => (x.Quantity * x.UnitPrice))).First().ToString("F2") $
+
+                    </td>
+
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <svg class="icon">
+                                    <use xlink:href="vendors/coreui/icons/svg/free.svg#cil-options"></use>
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.OrderId">Edit</a>
+                                <a class="dropdown-item" asp-action="Details" asp-route-id="@item.OrderId">Details</a>
+                                <a class="dropdown-item text-danger" asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                i++;
+            }
+        }
+    </tbody>
+</table>
+
+
+    }
+
+
+}
+

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<ManageTheNorthwind.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="display-5 text-center">Products</h1>
+
+<p>
+    <a class="btn btn-outline-success" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitsInStock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitsOnOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReorderLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discontinued)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody >
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a class="text-dark lh-sm text-decoration-none" asp-action="Details" asp-route-id="@item.ProductId"> @Html.DisplayFor(modelItem => item.ProductName)</a>
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitsInStock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitsOnOrder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReorderLevel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discontinued)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+
+
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <svg class="icon">
+                                <use xlink:href="vendors/coreui/icons/svg/free.svg#cil-options"></use>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.ProductId">Edit</a>
+                            <a class="dropdown-item" asp-action="Details" asp-route-id="@item.ProductId">Details</a>
+                            <a class="dropdown-item text-danger" asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

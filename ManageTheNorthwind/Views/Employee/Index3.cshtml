@@ -1,0 +1,35 @@
+﻿@model List<Employee>
+<table class="table">
+     <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">FirstName</th>
+      <th scope="col">LastName</th>
+      <th scope="col">City</th>
+      <th scope="col">Country</th>
+    </tr>
+  </thead>
+  <tbody>
+   
+        @foreach (var employee in Model)
+        {
+
+            <tr class="list-group-item-action button">
+                <form>
+                <th scope="row">@employee.EmployeeId</th>
+
+                <td><a asp-action="Profile" asp-controller="Employee" asp-route-id="@employee.EmployeeId" class="list-group-item  border-0">@employee.FirstName  </a></td>
+                <td>@employee.LastName</td>
+                <td>@employee.City></td>
+                <td>@employee.Country</td>
+                </form>
+         
+            </tr>
+         
+        }
+      
+    
+    
+  </tbody>
+</table>
+

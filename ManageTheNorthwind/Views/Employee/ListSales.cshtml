@@ -1,0 +1,45 @@
+﻿@model dynamic
+
+<div class="row">
+    <div class ="col-9">
+    <table class="table col-9">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Müşteri İd</th>
+                <th scope="col">Müşteri Adı</th>
+                <th scope="col">Şehir</th>
+                <th scope="col">Toplam Sipariş</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 1;
+            }
+            @foreach (var item in Model)
+            {
+               
+                <tr>
+                    <th>@i</th>
+                    <th scope="row">@item.MusteriId  </th>
+                    <td>@item.MusteriName</td>
+                    <td>@item.MusteriCountry</td>
+                    <td>@item.ToplamSipariş</td>
+                
+                </tr>
+                i++;
+            }
+
+        </tbody>
+    </table>
+    </div>
+    <div class="col-3 text-center">
+        <div class="bg-success">
+        Toplam Satış Sayısı:
+        @{
+            @ViewBag.toplamsiparis
+            ;
+        }
+        </div>
+    </div>
+</div>
