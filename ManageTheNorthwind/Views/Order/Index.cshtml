@@ -81,7 +81,8 @@
                         @Html.DisplayFor(modelItem => item.ShipCountry)
                     </td>
                     <td class="text-end">
-                        @item.OrderDetails.GroupBy(x => x.OrderId).Select(x => x.Sum(x => (x.Quantity * x.UnitPrice))).First().ToString("F2") $
+                    
+                       @item.OrderDetails.GroupBy(x => x.OrderId).Select(x => x.Sum(x => (x.Quantity * x.UnitPrice))).FirstOrDefault().ToString("F2") $
 
                     </td>
 

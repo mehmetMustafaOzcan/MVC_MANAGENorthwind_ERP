@@ -1,128 +1,158 @@
-﻿@*@model ManageTheNorthwind.Models.OrderDetail
+﻿@model ManageTheNorthwind.Models.OrderDetail
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "CreateOD2";
 }
 
-<h1>Create</h1>
+@*<h1>Order ID #@ViewBag.order.OrderId</h1>*@
 
-<h4>Order</h4>
+<h4>OrderDetail</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="CustomerId" class="control-label"></label>
-                <select asp-for="CustomerId" class="form-control" asp-items="ViewBag.CustomerId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="EmployeeId" class="control-label"></label>
-                <select asp-for="EmployeeId" class="form-control" asp-items="ViewBag.EmployeeId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="OrderDate" class="control-label"></label>
-                <input type="date" asp-for="OrderDate" class="form-control" />
-                <span asp-validation-for="OrderDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RequiredDate" class="control-label"></label>
-                <input asp-for="RequiredDate" class="form-control" />
-                <span asp-validation-for="RequiredDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ShippedDate" class="control-label"></label>
-                <input asp-for="ShippedDate" class="form-control" />
-                <span asp-validation-for="ShippedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ShipVia" class="control-label"></label>
-                <select asp-for="ShipVia" class="form-control" asp-items="ViewBag.ShipVia"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="ShipName" class="control-label"></label>
-                <input asp-for="ShipName" class="form-control" />
-                <span asp-validation-for="ShipName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ShipAddress" class="control-label"></label>
-                <input asp-for="ShipAddress" class="form-control" />
-                <span asp-validation-for="ShipAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ShipCity" class="control-label"></label>
-                <input asp-for="ShipCity" class="form-control" />
-                <span asp-validation-for="ShipCity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ShipRegion" class="control-label"></label>
-                <input asp-for="ShipRegion" class="form-control" />
-                <span asp-validation-for="ShipRegion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ShipPostalCode" class="control-label"></label>
-                <input asp-for="ShipPostalCode" class="form-control" />
-                <span asp-validation-for="ShipPostalCode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ShipCountry" class="control-label"></label>
-                <input asp-for="ShipCountry" class="form-control" />
-                <span asp-validation-for="ShipCountry" class="text-danger"></span>
-            </div>
-            
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Launch static backdrop modal</button>
-            <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Sipariş Bilgileri</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label asp-for="ShipRegion" class="control-label"></label>
-                                <input asp-for="ShipRegion" class="form-control" />
-                                <span asp-validation-for="ShipRegion" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="ShipPostalCode" class="control-label"></label>
-                                <input asp-for="ShipPostalCode" class="form-control" />
-                                <span asp-validation-for="ShipPostalCode" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="ShipCountry" class="control-label"></label>
-                                <input asp-for="ShipCountry" class="form-control" />
-                                <span asp-validation-for="ShipCountry" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" asp-controller="Update" asp-action="Create" class="btn btn-primary">Create Order</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        @* <form asp-action="CreateOD">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @*Buradki order ıd gösterme silindi
+        <div class="form-group">
+        <input asp-for="OrderId" value="@ViewBag.order.OrderId" readonly>
+        </div>
+        *@
+        <table class="table table">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">ProductName</th>
+                    <th scope="col">UnitPrice</th>
+                    <th scope="col">QuantityPerUnit</th>
+                    <th scope="col">Discount</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Add</th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                @for (var i = 0; i < ViewBag.Product.Count; i++)
+                {
+                    <form method="post" id="myForm" action="@Url.Action("CreateOD3")">
+                    <tr>
+                        <td>
+                            <input class="align-middle " type="hidden" name="ProductId" value="@ViewBag.Product[@i].ProductId" />
+                        <td><input class="align-middle border-0 bg-transparent" value="@ViewBag.Product[@i].ProductName" readonly /> </td>
+                        <td><input class="align-middle border-0 bg-transparent" name="UnitPrice" value="@ViewBag.Product[@i].UnitPrice" /></td>
+                        <td>@ViewBag.Product[@i].QuantityPerUnit</td>
+                        <td><input class="align-middle form-control" type="number" name="Discount" /></td>
+                        <td><input class="align-middle form-control" type="number" name="Quantity" /></td>
+                        <td><button type="button" class="btn btn-warning buttons">Add</button></td>
+                    </tr>
+                    </form>
+                }
+            </tbody>
+        </table>
 
 
+    </div>
+
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+    <div class="col-md-4">
+        <form method="post" id="myForm2" action="@Url.Action("CreateOD3")">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <tr>
+                    </tr>
+
+                </tbody>
+            </table>
+            <td><button type="submit" class="btn btn-warning buttons">Tamamla</button></td>
         </form>
     </div>
 </div>
+@section Scripts {
+    <script>
+        var tıklanan = document.querySelectorAll(".tbody button");
+        tıklanan.forEach(function (item) {
+            item.addEventListener("click", function () {
+                var row = this.parentNode.parentNode;
+                var product = row.querySelectorAll(".align-middle");
+                ekle(product);
+
+            });
+        });
+
+        function ekle(product) {
+            var tbody = document.querySelector("#tbody");
+
+            var tr = document.createElement("tr");
 
 
-<!-- Button trigger modal -->
-<!-- Button trigger modal -->
-   
+            product.forEach(function (item) {
+                var td = document.createElement("td");
+                var input = document.createElement("input");
+                input.name = item.name;
+                input.value = item.value;
+                input.setAttribute("type", item.getAttribute("type"));
+                input.setAttribute("name", item.getAttribute("name"));
+                input.setAttribute("value", item.getAttribute("value"));
+                input.setAttribute("class", "border-0 bg-transparent");
+                input.readOnly = true;
+                td.appendChild(input);
+                tr.appendChild(td);
+            });
+            var a = document.createElement("td");
+            a.innerHTML = "<button  class='delete btn btn-danger'>Sil</button>";
+            tr.appendChild(a);
+            tbody.appendChild(tr);
 
+            var del = document.querySelectorAll(".delete")
 
+            del.forEach(function (item) {
+                item.addEventListener("click", function () {
+                    var row = this.parentNode.parentNode;
+                    row.remove();
+                })
+            })
+        }
+        $(document).ready(function () {
+            $(".buttons").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/order/CreateOD3",
+                    data: $("#myForm").serialize(),
+                    success: function (data) {
+                        console.log("Veri başarıyla gönderildi.");
+                    },
+                    error: function () {
+                        console.log("Veri gönderimi sırasında hata oluştu.");
+                    }
+                });
+            });
+        });
 
-@section Scripts{
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js"></script>
+        $(document).on('click', '.buttons', function () {
+            $(".delete").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/order/CreateOD3",
+                    data: $("#myForm2").serialize(),
+                    success: function (data) {
+                        console.log("Veri başarıyla gönderildi.");
+                    },
+                    error: function () {
+                        console.log("Veri gönderimi sırasında hata oluştu.");
+                    }
+                });
+            });
+        });
 
-}
-<a asp-action="Index">Back to List</a>
+    </script>
+    }
 
-
-
-*@

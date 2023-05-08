@@ -53,6 +53,8 @@ namespace ManageTheNorthwind.Controllers
             List<SelectListItem> Products = _context.Products.Select(x => new SelectListItem { Value = x.ProductId.ToString(), Text = x.ProductName, }).ToList();
             ViewBag.ProductId = Products;
             ViewBag.order = order;
+            ViewBag.Product = _context.Products.ToListAsync();
+
             return View();
         }
         [HttpPost]
@@ -63,5 +65,20 @@ namespace ManageTheNorthwind.Controllers
             _context.SaveChanges();
             return RedirectToAction("CreateOD", order);
         }
+        public async Task<IActionResult> CreateOD3()
+        {
+
+            //Order order = await _context.Orders.Where(x => x.OrderId == orderdetail.OrderId).FirstAsync();
+            //  _context.SaveChanges();
+            ViewBag.Product = _context.Products.ToList();
+            return View();
+        }
+        [HttpPost]
+        public async void CreateOD3(OrderDetail orderdetails)
+        {
+           
+          
+        }
+       
     }
 }
