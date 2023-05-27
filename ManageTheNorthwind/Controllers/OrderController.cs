@@ -24,9 +24,12 @@ namespace ManageTheNorthwind.Controllers
             //  ViewBag.Orderdetails=order.OrderDetails;
             return View(order);
         }
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            return View();
+            Order order=await _context.Orders.FindAsync(id);
+            _context.Orders.Remove(order);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         } 
         public async Task<IActionResult> Create()
         {
@@ -44,26 +47,47 @@ namespace ManageTheNorthwind.Controllers
         public async Task<IActionResult> Create(Order order)
         {
             await _context.Orders.AddAsync(order);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return RedirectToAction("CreateOD", order);
         }
-        public async Task<IActionResult> CreateOD(Order order)
-        {
-            List<SelectListItem> Products = _context.Products.Select(x => new SelectListItem { Value = x.ProductId.ToString(), Text = x.ProductName, }).ToList();
+        public async Task<IActionResult> CreateOD(int id, Order order)
+       {
+            List<SelectListItem> Products = await _context.Products.Select(x => new SelectListItem { Value = x.ProductId.ToString(), Text = x.ProductName, }).ToListAsync();
             ViewBag.ProductId = Products;
-            ViewBag.order = order;
-            ViewBag.Product = _context.Products.ToListAsync();
+            ViewBag.Product =await _context.Products.ToListAsync();
+           var ord= id>0? await _context.Orders.FindAsync(id):order;
+              ViewBag.order = ord;
+            
+           
 
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> CreateOD(OrderDetail orderdetail)
         {
-            await _context.OrderDetails.AddAsync(orderdetail);
-            Order order=await _context.Orders.Where(x => x.OrderId == orderdetail.OrderId).FirstAsync();
-            _context.SaveChanges();
-            return RedirectToAction("CreateOD", order);
+            Product product =await _context.Products.FindAsync(orderdetail.ProductId);
+            var ord = await _context.OrderDetails.Where(x =>x.OrderId == orderdetail.OrderId).Select(p=>p.ProductId).ToListAsync();
+            if (!ord.Contains(orderdetail.ProductId))
+            {
+                orderdetail.UnitPrice =(decimal)product.UnitPrice;
+                await _context.OrderDetails.AddAsync(orderdetail);
+              
+                _context.SaveChanges();
+                return RedirectToAction("CreateOD", orderdetail.OrderId);
+            }
+            else
+            {
+                OrderDetail od =await _context.OrderDetails.FirstOrDefaultAsync(x => x.OrderId == orderdetail.OrderId && x.ProductId == orderdetail.ProductId);
+
+                od.UnitPrice = (od.UnitPrice / od.Quantity) * (od.Quantity + orderdetail.Quantity);
+               od.Quantity+=orderdetail.Quantity;
+                 _context.OrderDetails.Update(od);
+                _context.SaveChanges();
+                return RedirectToAction("CreateOD", orderdetail.OrderId);
+            }
+           
+
         }
         public async Task<IActionResult> CreateOD3()
         {

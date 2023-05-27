@@ -52,7 +52,7 @@
             int i = 0;
             foreach (var item in Model)
             {
-                <tr class=" details @(Convert.ToDateTime(item.ShippedDate)<(new DateTime(0002, 02,2))?" alert alert-warning border-warning fw-bold border-1 " :"")">
+                <tr class=" details @(Convert.ToDateTime(item.ShippedDate)<(new DateTime(0002, 02,2))?" alert alert-warning border-warning fw-bold border border-2 " :"")">
 
                     <td>
                         <a asp-action ="Details" asp-route-id="@item.OrderId"> @Html.DisplayFor(modelItem => item.OrderId)</a>

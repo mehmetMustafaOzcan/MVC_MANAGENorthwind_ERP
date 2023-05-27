@@ -7,7 +7,7 @@
 }
 
 <h1>Profile</h1>
-
+<a class=" btn btn-close btn-ghost-danger float-end " asp-action="Index"></a>
 <div>
     <h4>Employee</h4>
     <hr />
@@ -114,8 +114,9 @@
        
     </dl>
 </div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeId }) |
-    <a asp-action="Index">Back to List</a>|
-     @Html.ActionLink("Satışları Listele", "ListSales", new {  id = Model.EmployeeId }) 
+
+<div class="text-end mb-2">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeId },new { @class="btn btn-info"}) 
+
+    <a class="btn btn-success" asp-action="ListSales" asp-route-id="@Model.EmployeeId">Satışları Listele</a>
 </div>

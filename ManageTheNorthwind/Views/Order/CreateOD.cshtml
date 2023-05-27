@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="CreateOD">
+        <form asp-action="CreateOD" asp-controller="Order" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
            @*Buradki order ıd gösterme silindi*@
             <div class="form-group">

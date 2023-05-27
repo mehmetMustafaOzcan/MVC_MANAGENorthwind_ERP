@@ -76,49 +76,7 @@
            
 
         </form>
-        @*
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Launch static backdrop modal</button>
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Sipariş Bilgileri</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label asp-for="OrderId" class="control-label"></label>
-                            <select asp-for="OrderId" class="form-control" asp-items="ViewBag.OrderId"></select>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="ProductId" class="control-label"></label>
-                            <select asp-for="ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="UnitPrice" class="control-label"></label>
-                            <input asp-for="UnitPrice" class="form-control" />
-                            <span asp-validation-for="UnitPrice" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Discount" class="control-label"></label>
-                            <input asp-for="Discount" class="form-control" />
-                            <span asp-validation-for="Discount" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Create" class="btn btn-primary" />
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" asp-controller="Order" asp-action="Create2" class="btn btn-primary">Create Order</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-        *@
+       
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
