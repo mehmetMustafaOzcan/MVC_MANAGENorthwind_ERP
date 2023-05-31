@@ -10,7 +10,7 @@ namespace ManageTheNorthwind.Controllers
 
         public IActionResult Index()
         {
-            return View(_context.Employees.ToList());
+            return View(_context.Employees.Include(o=>o.Orders).ToList());
         }
         public IActionResult Profile(int id)
         {

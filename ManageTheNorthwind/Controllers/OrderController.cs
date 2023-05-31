@@ -51,17 +51,18 @@ namespace ManageTheNorthwind.Controllers
 
             return RedirectToAction("CreateOD", order);
         }
-        public async Task<IActionResult> CreateOD(int id, Order order)
+        public async Task<IActionResult> CreateOD(OrderDetail orderdetail,int id)
        {
-            List<SelectListItem> Products = await _context.Products.Select(x => new SelectListItem { Value = x.ProductId.ToString(), Text = x.ProductName, }).ToListAsync();
+           
+            List <SelectListItem> Products = await _context.Products.Select(x => new SelectListItem { Value = x.ProductId.ToString(), Text = x.ProductName, }).ToListAsync();
             ViewBag.ProductId = Products;
             ViewBag.Product =await _context.Products.ToListAsync();
-           var ord= id>0? await _context.Orders.FindAsync(id):order;
+           Order ord= await _context.Orders.FindAsync(orderdetail.OrderId>0?orderdetail.OrderId:id);
               ViewBag.order = ord;
             
            
 
-            return View();
+            return View(orderdetail);
         }
         [HttpPost]
         public async Task<IActionResult> CreateOD(OrderDetail orderdetail)
@@ -74,7 +75,7 @@ namespace ManageTheNorthwind.Controllers
                 await _context.OrderDetails.AddAsync(orderdetail);
               
                 _context.SaveChanges();
-                return RedirectToAction("CreateOD", orderdetail.OrderId);
+                return RedirectToAction("CreateOD", orderdetail);
             }
             else
             {
@@ -84,7 +85,7 @@ namespace ManageTheNorthwind.Controllers
                od.Quantity+=orderdetail.Quantity;
                  _context.OrderDetails.Update(od);
                 _context.SaveChanges();
-                return RedirectToAction("CreateOD", orderdetail.OrderId);
+                return RedirectToAction("CreateOD",orderdetail);
             }
            
 

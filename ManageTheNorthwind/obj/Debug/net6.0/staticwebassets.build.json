@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FiWPxuyKGoWY3VO1MIh7dpuGSn+1jas2GzyNBjMmNwQ=",
+  "Hash": "YoKiX5jDVosYLH0N0K8eOr1NuY5XHhc9IQdWeqMcI68=",
   "Source": "ManageTheNorthwind",
   "BasePath": "_content/ManageTheNorthwind",
   "Mode": "Default",
@@ -20349,23 +20349,6 @@
       "OriginalItemSpec": "wwwroot\\vendors\\coreui\\icons\\svg\\flag\\cif-ga.svg"
     },
     {
-      "Identity": "C:\\Users\\ÖZCAN\\Documents\\GitHub\\MVC_MANAGENorthwind_ERP\\ManageTheNorthwind\\wwwroot\\vendors\\coreui\\icons\\svg\\flag\\cif-gb.svg",
-      "SourceId": "ManageTheNorthwind",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ÖZCAN\\Documents\\GitHub\\MVC_MANAGENorthwind_ERP\\ManageTheNorthwind\\wwwroot\\",
-      "BasePath": "_content/ManageTheNorthwind",
-      "RelativePath": "vendors/coreui/icons/svg/flag/cif-gb.svg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\vendors\\coreui\\icons\\svg\\flag\\cif-gb.svg"
-    },
-    {
       "Identity": "C:\\Users\\ÖZCAN\\Documents\\GitHub\\MVC_MANAGENorthwind_ERP\\ManageTheNorthwind\\wwwroot\\vendors\\coreui\\icons\\svg\\flag\\cif-gd.svg",
       "SourceId": "ManageTheNorthwind",
       "SourceType": "Discovered",
@@ -22455,6 +22438,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\vendors\\coreui\\icons\\svg\\flag\\cif-ug.svg"
+    },
+    {
+      "Identity": "C:\\Users\\ÖZCAN\\Documents\\GitHub\\MVC_MANAGENorthwind_ERP\\ManageTheNorthwind\\wwwroot\\vendors\\coreui\\icons\\svg\\flag\\cif-uk.svg",
+      "SourceId": "ManageTheNorthwind",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ÖZCAN\\Documents\\GitHub\\MVC_MANAGENorthwind_ERP\\ManageTheNorthwind\\wwwroot\\",
+      "BasePath": "_content/ManageTheNorthwind",
+      "RelativePath": "vendors/coreui/icons/svg/flag/cif-uk.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\vendors\\coreui\\icons\\svg\\flag\\cif-uk.svg"
     },
     {
       "Identity": "C:\\Users\\ÖZCAN\\Documents\\GitHub\\MVC_MANAGENorthwind_ERP\\ManageTheNorthwind\\wwwroot\\vendors\\coreui\\icons\\svg\\flag\\cif-us.svg",

@@ -41,7 +41,7 @@
                         </td>
                         <td class="text-center">
                             <svg class="icon icon-xl">
-                                <use xlink:href="vendors/coreui/icons/svg/flag.svg#cif-tr"></use>
+                                <use xlink:href="vendors/coreui/icons/svg/flag.svg#cif-@employee.Country.ToLower()"></use>
                             </svg>
                             <div>
                                 @Html.DisplayFor(modelItem => employee.Country)
@@ -62,8 +62,8 @@
                             @Html.DisplayFor(modelItem => employee.Title)
                         </td>
                         <td>
-                            <div class="small text-medium-emphasis">Last login</div>
-                            <div class="fw-semibold">10 sec ago</div>
+                            <div class="small text-medium-emphasis">Total Sales</div>
+                            <div class="fw-semibold">@employee.Orders.Count()</div>
                         </td>
                         <td>
 

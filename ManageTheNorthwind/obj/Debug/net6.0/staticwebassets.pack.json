@@ -4781,10 +4781,6 @@
       "PackagePath": "staticwebassets\\vendors\\coreui\\icons\\svg\\flag\\cif-ga.svg"
     },
     {
-      "Id": "C:\\Users\\ÖZCAN\\Documents\\GitHub\\MVC_MANAGENorthwind_ERP\\ManageTheNorthwind\\wwwroot\\vendors\\coreui\\icons\\svg\\flag\\cif-gb.svg",
-      "PackagePath": "staticwebassets\\vendors\\coreui\\icons\\svg\\flag\\cif-gb.svg"
-    },
-    {
       "Id": "C:\\Users\\ÖZCAN\\Documents\\GitHub\\MVC_MANAGENorthwind_ERP\\ManageTheNorthwind\\wwwroot\\vendors\\coreui\\icons\\svg\\flag\\cif-gd.svg",
       "PackagePath": "staticwebassets\\vendors\\coreui\\icons\\svg\\flag\\cif-gd.svg"
     },
@@ -5275,6 +5271,10 @@
     {
       "Id": "C:\\Users\\ÖZCAN\\Documents\\GitHub\\MVC_MANAGENorthwind_ERP\\ManageTheNorthwind\\wwwroot\\vendors\\coreui\\icons\\svg\\flag\\cif-ug.svg",
       "PackagePath": "staticwebassets\\vendors\\coreui\\icons\\svg\\flag\\cif-ug.svg"
+    },
+    {
+      "Id": "C:\\Users\\ÖZCAN\\Documents\\GitHub\\MVC_MANAGENorthwind_ERP\\ManageTheNorthwind\\wwwroot\\vendors\\coreui\\icons\\svg\\flag\\cif-uk.svg",
+      "PackagePath": "staticwebassets\\vendors\\coreui\\icons\\svg\\flag\\cif-uk.svg"
     },
     {
       "Id": "C:\\Users\\ÖZCAN\\Documents\\GitHub\\MVC_MANAGENorthwind_ERP\\ManageTheNorthwind\\wwwroot\\vendors\\coreui\\icons\\svg\\flag\\cif-us.svg",
